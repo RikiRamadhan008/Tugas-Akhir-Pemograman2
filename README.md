@@ -69,7 +69,7 @@ source database : db_laundry231011400777.sql;
 
 Atau:
 - Buka **phpMyAdmin** → Import → pilih file `database/db_laundry231011400777.sql`
-- Pastikan database `mylaundry` berhasil dibuat
+- Pastikan database `database/db_laundry231011400777.sql` berhasil dibuat
 
 ### 2. Konfigurasi Koneksi Database
 
