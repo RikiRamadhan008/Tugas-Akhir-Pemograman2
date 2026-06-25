@@ -1,4 +1,4 @@
-# 🧺 MyLaundry — Sistem Manajemen Laundry
+# MyLaundry — Sistem Manajemen Laundry
 
 Identitas Mahasiswa
 
@@ -11,13 +11,13 @@ Aplikasi desktop **Java Swing** untuk manajemen laundry dengan arsitektur **MVC 
 
 ---
 
-## 📁 Struktur Folder Project
+## Struktur Folder Project
 
 ```
 MyLaundry/
 ├── pom.xml                          ← Maven dependencies
 ├── database/
-│   └── mylaundry.sql                ← Script SQL database
+│   └── db_laundry231011400777.sql                ← Script SQL database
 ├── src/
 │   └── main/
 │       ├── java/com/mylaundry/
@@ -57,7 +57,7 @@ MyLaundry/
 
 ---
 
-## 🚀 Cara Setup & Menjalankan
+## Cara Setup & Menjalankan
 
 ### 1. Persiapan Database MySQL
 
@@ -96,7 +96,7 @@ db.password=        ← isi password MySQL Anda
 
 ---
 
-## 🔐 Hak Akses
+## Hak Akses
 
 | Username | Password  | Role  |
 |----------|-----------|-------|
@@ -105,7 +105,7 @@ db.password=        ← isi password MySQL Anda
 
 ---
 
-## ✨ Fitur Lengkap
+## Fitur Lengkap
 
 ### 1. Login
 - Username & Password dengan MD5 hash
@@ -149,7 +149,7 @@ db.password=        ← isi password MySQL Anda
 
 ---
 
-## 🎨 Teknologi
+## Teknologi
 
 | Komponen | Versi |
 |----------|-------|
@@ -163,7 +163,7 @@ db.password=        ← isi password MySQL Anda
 
 ---
 
-## ⌨️ Keyboard Shortcuts
+## Keyboard Shortcuts
 
 | Shortcut | Fungsi |
 |----------|--------|
@@ -175,51 +175,12 @@ db.password=        ← isi password MySQL Anda
 
 ---
 
-## 🗺️ Entity Relationship Diagram (ERD)
-erDiagram
-
-USER {
-    int id_user PK
-    varchar username
-    varchar password
-    varchar nama_lengkap
-    varchar role
-}
-
-PELANGGAN {
-    int id_pelanggan PK
-    varchar nama
-    varchar no_hp
-    text alamat
-}
-
-TRANSAKSI {
-    int id_transaksi PK
-    int id_pelanggan FK
-    varchar jenis_laundry
-    decimal berat
-    decimal harga_perkg
-    decimal total_harga
-    date tanggal_masuk
-    date tanggal_selesai
-    varchar status
-}
-
-PEMBAYARAN {
-    int id_pembayaran PK
-    int id_transaksi FK
-    decimal total_bayar
-    decimal uang_bayar
-    decimal kembalian
-    date tanggal_bayar
-}
-
-PELANGGAN ||--o{ TRANSAKSI : memiliki
-TRANSAKSI ||--|| PEMBAYARAN : dibayar
+## Entity Relationship Diagram (ERD)
+![alt text](mermaid-diagram.png)
 
 ---
 
-## 🗄️ Database Schema
+## Database Schema
 
 ```
 user         → id, username, password(MD5), nama_lengkap, role
@@ -235,32 +196,38 @@ pembayaran   → id_pembayaran(PAY-YYYYMMDD-001), id_transaksi(FK),
 
 ## Screenshot Aplikasi
 Login
+
 ![alt text](image.png)
 
 
 Dashboard
+
 ![alt text](image-2.png)
 
 
 Data Pelanggan
+
 ![alt text](image-3.png)
 
 
 Transaksi Laundry
+
 ![alt text](image-4.png)
 
 
 Pembayaran
+
 ![alt text](image-5.png)
 
 
 Laporan
+
 ![alt text](image-6.png)
 
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 **Error: Koneksi database gagal**
 - Pastikan MySQL server sudah running
@@ -281,7 +248,7 @@ Laporan
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 Riki Ramadhan
 NIM : 231011400777
