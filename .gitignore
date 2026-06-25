@@ -1,0 +1,12 @@
+target/
+*.class
+
+# NetBeans
+nbproject/private/
+
+# Logs
+*.log
+
+# OS Files
+.DS_Store
+Thumbs.db

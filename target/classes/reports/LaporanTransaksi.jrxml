@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN"
+        "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="LaporanTransaksi"
+              pageWidth="842" pageHeight="595"
+              orientation="Landscape"
+              columnWidth="782" leftMargin="30" rightMargin="30"
+              topMargin="20" bottomMargin="20"
+              uuid="a1b2c3d4-e5f6-7890-abcd-ef1234567890">
+
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+
+    <!-- Field dari bean Transaksi -->
+    <field name="idTransaksi"   class="java.lang.String"/>
+    <field name="namaPelanggan" class="java.lang.String"/>
+    <field name="jenisLaundry"  class="java.lang.String"/>
+    <field name="berat"         class="java.lang.Double"/>
+    <field name="hargaPerKg"    class="java.lang.Double"/>
+    <field name="totalHarga"    class="java.lang.Double"/>
+    <field name="tglMasuk"      class="java.sql.Date"/>
+    <field name="tglSelesai"    class="java.sql.Date"/>
+    <field name="status"        class="java.lang.String"/>
+
+    <!-- Variabel total -->
+    <variable name="GRAND_TOTAL" class="java.lang.Double" calculation="Sum">
+        <variableExpression><![CDATA[$F{totalHarga}]]></variableExpression>
+    </variable>
+
+    <!-- Title -->
+    <title>
+        <band height="70" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="782" height="30"/>
+                <textElement textAlignment="Center">
+                    <font fontName="SansSerif" size="18" isBold="true"/>
+                </textElement>
+                <text><![CDATA[LAPORAN TRANSAKSI LAUNDRY]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="30" width="782" height="20"/>
+                <textElement textAlignment="Center">
+                    <font fontName="SansSerif" size="11"/>
+                </textElement>
+                <text><![CDATA[MyLaundry — Sistem Manajemen Laundry]]></text>
+            </staticText>
+            <line>
+                <reportElement x="0" y="55" width="782" height="1"/>
+            </line>
+        </band>
+    </title>
+
+    <!-- Column Header -->
+    <columnHeader>
+        <band height="26" splitType="Stretch">
+            <staticText>
+                <reportElement mode="Opaque" x="0"   y="0" width="120" height="24" forecolor="#FFFFFF" backcolor="#1A73E8"/>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[ID Transaksi]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="120" y="0" width="130" height="24" forecolor="#FFFFFF" backcolor="#1A73E8"/>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Pelanggan]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="250" y="0" width="100" height="24" forecolor="#FFFFFF" backcolor="#1A73E8"/>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Jenis Laundry]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="350" y="0" width="60" height="24" forecolor="#FFFFFF" backcolor="#1A73E8"/>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Berat(Kg)]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="410" y="0" width="90" height="24" forecolor="#FFFFFF" backcolor="#1A73E8"/>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Harga/Kg]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="500" y="0" width="100" height="24" forecolor="#FFFFFF" backcolor="#1A73E8"/>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Total Harga]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="600" y="0" width="90" height="24" forecolor="#FFFFFF" backcolor="#1A73E8"/>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Tgl Masuk]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="690" y="0" width="92" height="24" forecolor="#FFFFFF" backcolor="#1A73E8"/>
+                <textElement textAlignment="Center"><font isBold="true"/></textElement>
+                <text><![CDATA[Status]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <!-- Detail -->
+    <detail>
+        <band height="22" splitType="Stretch">
+            <textField>
+                <reportElement x="0"   y="0" width="120" height="20"/>
+                <textElement textAlignment="Center"><font size="10"/></textElement>
+                <textFieldExpression><![CDATA[$F{idTransaksi}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="120" y="0" width="130" height="20"/>
+                <textElement><font size="10"/></textElement>
+                <textFieldExpression><![CDATA[$F{namaPelanggan}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="250" y="0" width="100" height="20"/>
+                <textElement textAlignment="Center"><font size="10"/></textElement>
+                <textFieldExpression><![CDATA[$F{jenisLaundry}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="350" y="0" width="60" height="20"/>
+                <textElement textAlignment="Center"><font size="10"/></textElement>
+                <textFieldExpression><![CDATA[$F{berat}]]></textFieldExpression>
+            </textField>
+            <textField pattern="#,##0">
+                <reportElement x="410" y="0" width="90" height="20"/>
+                <textElement textAlignment="Right"><font size="10"/></textElement>
+                <textFieldExpression><![CDATA[$F{hargaPerKg}]]></textFieldExpression>
+            </textField>
+            <textField pattern="#,##0">
+                <reportElement x="500" y="0" width="100" height="20"/>
+                <textElement textAlignment="Right"><font size="10" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA[$F{totalHarga}]]></textFieldExpression>
+            </textField>
+            <textField pattern="dd/MM/yyyy">
+                <reportElement x="600" y="0" width="90" height="20"/>
+                <textElement textAlignment="Center"><font size="10"/></textElement>
+                <textFieldExpression><![CDATA[$F{tglMasuk}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="690" y="0" width="92" height="20"/>
+                <textElement textAlignment="Center"><font size="10"/></textElement>
+                <textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <!-- Summary -->
+    <summary>
+        <band height="40" splitType="Stretch">
+            <line>
+                <reportElement x="0" y="2" width="782" height="1"/>
+            </line>
+            <staticText>
+                <reportElement x="400" y="8" width="100" height="20"/>
+                <textElement textAlignment="Right"><font size="12" isBold="true"/></textElement>
+                <text><![CDATA[GRAND TOTAL:]]></text>
+            </staticText>
+            <textField pattern="Rp #,##0">
+                <reportElement x="500" y="8" width="282" height="20"/>
+                <textElement textAlignment="Right"><font size="12" isBold="true"/></textElement>
+                <textFieldExpression><![CDATA[$V{GRAND_TOTAL}]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+</jasperReport>
